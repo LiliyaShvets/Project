@@ -11,12 +11,10 @@ let appData = {
     saving: false
 };
  
-
 let a1 = prompt("Введите обязательную статью расходов в этом месяце", '');
     a2 = prompt("Во сколько обойдется", '');
 
 appData.expenses[a1] = a2;
 
  
-
 alert(appData.budget / 30);
