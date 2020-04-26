@@ -71,22 +71,18 @@ function checkSavings() {
 checkSavings();
 
 
-function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++) {
-        let c = prompt("Статья необязательных расходов?");
-            d = +prompt("Во сколько обойдется?");
+function chooseOptExpenses() {                             
 
-        if ((typeof(c)) === 'string' && (typeof(c)) != null && (typeof(d)) != null && c != '' && d != '' && c.length < 50) {
-            console.log("done");
-            appData.optionalExpenses[c] = d;
-        } else {
-            console.log("Произошла ошибка");
-            i--;
-        }
-
+    for (let i = 1; i <= 3; i++) {
+        let questionOptExpenses = prompt("Статья необязательных расходов?");
+            appData.optionalExpenses[i] = questionOptExpenses;
+        console.log(appData.optionalExpenses);
     }
+
 }
 chooseOptExpenses();
+
+
 
 // let i = 0;
 // while (i < 2) {
