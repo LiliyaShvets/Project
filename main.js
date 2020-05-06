@@ -57,37 +57,34 @@ let appData = {
             alert("Доход в месяц с вашего депозита: " + appData.monthIncome);
         }
     },
-    chooseOptExpenses: function() {
-        for (let i = 1; i < 3; i++) {
-            let opt = prompt("Статья необязательных расходов?", "");
-                appData.optionalExpenses[i] = opt;
+    chooseOptExpenses: function () {
+        for (let i = 1; i <= 3; i++) {
+            let questionOptExpenses = prompt("Статья необязательных расходов?");
+            appData.optionalExpenses[i] = questionOptExpenses;
+            console.log(appData.optionalExpenses);
         }
     },
-    chooseIncome: function() {
-        for (let i = 1; i < 2; i++) {
-            let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую", "");
+    chooseIncome: function () {
 
-            if ((typeof(items)) === 'string' && (typeof(items)) != null && items != '') {
-                console.log("done");
-                appData.income = items.split(', ');
-                appData.income.sort();
-                appData.income.push(prompt('Может что-то еще?'));
-            } else {
-                console.log("Ошибка. Повторите еще раз");
-                i--;
-            }
-            appData.income.forEach(function(item, index, income) {
-                for (let i = 1; i < 2; i++){
-                    alert( "Способы доп.заработка: " + (index+1) + " - " + item );
-                }
-            });
+        let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+
+        if (typeof(items) != "string" || items == "" || typeof(items) == null) {
+            console.log("Вы ввели некорректные данные или не ввели их вовсе");
+        } else {
+            appData.income = items.split(", ");
+            appData.income.push(prompt("Может что-то еще?"));
+            appData.income.sort();
         }
+
+        appData.income.forEach (function (itemmassive, i) {
+            alert("Способы доп. заработка: " + (i+1) + " - " + itemmassive);
+        });
 
     }
 };
 
 for (let key in appData) {
-    console.log("Наша программа включает в себя данные: " + key);
+    console.log("Наша программа включает в себя данные: " + key + " - " + appData[key]);
 };
 
 
